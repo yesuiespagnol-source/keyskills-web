@@ -1,0 +1,230 @@
+---
+---
+
+<section class="about section" id="nosotros">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-image reveal-left">
+        <div class="image-wrapper">
+          <img
+            src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=800&q=80"
+            alt="Equipo profesional de consultoría en reunión"
+            loading="lazy"
+          />
+          <div class="image-overlay"></div>
+        </div>
+
+        <div class="experience-badge">
+          <span class="badge-number">+30</span>
+          <span class="badge-text">Años de<br>Experiencia</span>
+        </div>
+      </div>
+
+      <div class="about-content reveal-right">
+        <span class="section-label">Sobre Nosotros</span>
+        <h2 class="section-title">Profesionales Comprometidos con tu Éxito</h2>
+
+        <div class="divider divider-left"></div>
+
+        <p class="about-lead">
+          Somos un grupo multidisciplinar de profesionales con más de tres décadas de experiencia
+          en sectores diversos: sanidad, comunicaciones, seguros, asesoría, banca y relaciones institucionales.
+        </p>
+
+        <p>
+          Hemos ocupado puestos directivos y hemos liderado transformaciones significativas.
+          Pero lo más importante: <strong>disfrutamos trabajando</strong> y tenemos un propósito
+          común que nos define.
+        </p>
+
+        <blockquote class="about-quote">
+          <p>"Implicarnos al 101% en desarrollar soluciones adaptadas a cada cliente."</p>
+        </blockquote>
+
+        <p>
+          No somos consultores que llegan, analizan y se van. Somos <strong>socios estratégicos</strong>
+          que se comprometen con tu visión y trabajan a tu lado hasta alcanzar los resultados.
+        </p>
+
+        <div class="about-cta">
+          <a href="#contacto" class="btn btn-dark">
+            ¿Hablamos?
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .about {
+    background: var(--color-light);
+  }
+
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+  }
+
+  .about-image {
+    position: relative;
+    opacity: 0;
+    transform: translateX(-60px);
+    transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .about-image.visible {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  .image-wrapper {
+    position: relative;
+    border-radius: var(--radius-xl);
+    overflow: hidden;
+    box-shadow: var(--shadow-xl);
+  }
+
+  .image-wrapper img {
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+  }
+
+  .about-image:hover .image-wrapper img {
+    transform: scale(1.05);
+  }
+
+  .image-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      180deg,
+      transparent 0%,
+      rgba(10, 22, 40, 0.1) 100%
+    );
+  }
+
+  .experience-badge {
+    position: absolute;
+    bottom: -20px;
+    right: -20px;
+    width: 140px;
+    height: 140px;
+    background: var(--color-accent);
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-primary);
+    box-shadow: var(--shadow-lg);
+    animation: float 4s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+
+  .badge-number {
+    font-family: var(--font-display);
+    font-size: 2.5rem;
+    font-weight: 700;
+    line-height: 1;
+  }
+
+  .badge-text {
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    text-align: center;
+    margin-top: 0.25rem;
+  }
+
+  .about-content {
+    opacity: 0;
+    transform: translateX(60px);
+    transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    transition-delay: 0.2s;
+  }
+
+  .about-content.visible {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  .section-title {
+    margin-top: 0.5rem;
+  }
+
+  .about-lead {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--color-text);
+    margin-bottom: 1.5rem;
+  }
+
+  .about-content p {
+    color: var(--color-text-light);
+    line-height: 1.7;
+  }
+
+  .about-content strong {
+    color: var(--color-primary);
+    font-weight: 600;
+  }
+
+  .about-quote {
+    position: relative;
+    margin: 2rem 0;
+    padding: 1.5rem 2rem;
+    background: var(--color-white);
+    border-left: 4px solid var(--color-accent);
+    border-radius: 0 var(--radius-md) var(--radius-md) 0;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .about-quote p {
+    font-family: var(--font-display);
+    font-size: 1.15rem;
+    font-style: italic;
+    color: var(--color-primary) !important;
+    margin: 0;
+  }
+
+  .about-cta {
+    margin-top: 2rem;
+  }
+
+  @media (max-width: 900px) {
+    .about-grid {
+      grid-template-columns: 1fr;
+      gap: 3rem;
+    }
+
+    .about-image {
+      max-width: 500px;
+      margin: 0 auto;
+    }
+
+    .experience-badge {
+      right: 10px;
+      bottom: -15px;
+      width: 110px;
+      height: 110px;
+    }
+
+    .badge-number {
+      font-size: 2rem;
+    }
+
+    .image-wrapper img {
+      height: 400px;
+    }
+  }
+</style>

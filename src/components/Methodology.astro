@@ -1,0 +1,298 @@
+---
+const steps = [
+  {
+    number: '01',
+    title: 'Análisis',
+    subtitle: 'Diagnóstico Profundo',
+    description: 'Evaluamos cada aspecto de tu organización con rigor analítico. Información es conocimiento, y el conocimiento es poder de decisión.',
+    mindset: 'Es tiempo de ser sincero, analítico y objetivo.'
+  },
+  {
+    number: '02',
+    title: 'Planificación',
+    subtitle: 'Hoja de Ruta',
+    description: 'Diseñamos un plan de acción personalizado con medidas estratégicas, nuevos procesos, metodologías y herramientas de control específicas.',
+    mindset: 'Es tiempo de ser organizado, humilde y entusiasta.'
+  },
+  {
+    number: '03',
+    title: 'Implementación',
+    subtitle: 'Ejecución en Terreno',
+    description: 'Nos integramos en tu equipo para ejecutar las medidas planificadas. Nuestra experiencia acelera el proceso y minimiza riesgos.',
+    mindset: 'Es tiempo de ser persistente, abierto al cambio y productivo.'
+  },
+  {
+    number: '04',
+    title: 'Mejora Continua',
+    subtitle: 'Resultados Sostenibles',
+    description: 'Acciones sistemáticas de control y mejora continua para mantener y potenciar los resultados a largo plazo.',
+    mindset: 'Es tiempo de ser positivo, creativo y analítico.'
+  }
+];
+---
+
+<section class="methodology section" id="metodo">
+  <div class="container">
+    <div class="section-header text-center">
+      <span class="section-label reveal">Nuestro Proceso</span>
+      <h2 class="section-title reveal">Metodología que Genera Impacto</h2>
+      <p class="section-subtitle reveal">
+        Un proceso estructurado y comprobable que garantiza resultados.
+        Cada fase está diseñada para build sobre la anterior.
+      </p>
+    </div>
+
+    <div class="timeline">
+      <div class="timeline-line"></div>
+
+      <div class="steps-container" data-stagger>
+        {steps.map((step, index) => (
+          <div class="step reveal" style={`transition-delay: ${index * 0.15}s`}>
+            <div class="step-marker">
+              <span class="step-number">{step.number}</span>
+            </div>
+
+            <div class="step-content">
+              <div class="step-header">
+                <span class="step-subtitle">{step.subtitle}</span>
+                <h3 class="step-title">{step.title}</h3>
+              </div>
+
+              <p class="step-description">{step.description}</p>
+
+              <div class="step-mindset">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                  <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <span>{step.mindset}</span>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .methodology {
+    background: var(--color-primary);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .methodology::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 50%;
+    height: 100%;
+    background: radial-gradient(circle at 70% 30%, rgba(201, 162, 39, 0.08) 0%, transparent 50%);
+    pointer-events: none;
+  }
+
+  .methodology .section-label {
+    color: var(--color-accent);
+  }
+
+  .methodology .section-title {
+    color: var(--color-white);
+  }
+
+  .methodology .section-subtitle {
+    color: rgba(255, 255, 255, 0.7);
+  }
+
+  .section-header {
+    margin-bottom: 5rem;
+  }
+
+  .section-header .section-label,
+  .section-header .section-title,
+  .section-header .section-subtitle {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .section-header.visible .section-label,
+  .section-header.visible .section-title,
+  .section-header.visible .section-subtitle {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .section-header .section-label { transition-delay: 0s; }
+  .section-header .section-title { transition-delay: 0.1s; }
+  .section-header .section-subtitle { transition-delay: 0.2s; }
+
+  .timeline {
+    position: relative;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  .timeline-line {
+    position: absolute;
+    top: 40px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: rgba(255, 255, 255, 0.1);
+  }
+
+  .timeline-line::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background: linear-gradient(90deg, var(--color-accent), var(--color-accent-light));
+    transition: width 1.5s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .methodology.visible .timeline-line::after {
+    width: 100%;
+  }
+
+  .steps-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    position: relative;
+  }
+
+  .step {
+    text-align: center;
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .step.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .step-marker {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 2rem;
+    background: var(--color-secondary);
+    border: 2px solid var(--color-accent);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 1;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .step:hover .step-marker {
+    background: var(--color-accent);
+    transform: scale(1.1);
+  }
+
+  .step-number {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--color-white);
+  }
+
+  .step-content {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: var(--radius-lg);
+    padding: 1.5rem;
+    transition: all 0.4s ease;
+  }
+
+  .step:hover .step-content {
+    background: rgba(255, 255, 255, 0.06);
+    border-color: rgba(201, 162, 39, 0.3);
+  }
+
+  .step-header {
+    margin-bottom: 1rem;
+  }
+
+  .step-subtitle {
+    display: block;
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--color-accent);
+    margin-bottom: 0.5rem;
+  }
+
+  .step-title {
+    font-family: var(--font-display);
+    font-size: 1.35rem;
+    font-weight: 600;
+    color: var(--color-white);
+  }
+
+  .step-description {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 1rem;
+  }
+
+  .step-mindset {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.5rem;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .step-mindset svg {
+    flex-shrink: 0;
+    width: 16px;
+    height: 16px;
+    color: var(--color-accent);
+    margin-top: 2px;
+  }
+
+  .step-mindset span {
+    font-size: 0.75rem;
+    font-style: italic;
+    color: rgba(255, 255, 255, 0.5);
+    text-align: left;
+  }
+
+  @media (max-width: 900px) {
+    .steps-container {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 3rem 2rem;
+    }
+
+    .timeline-line {
+      display: none;
+    }
+
+    .step-marker {
+      width: 60px;
+      height: 60px;
+      margin-bottom: 1.5rem;
+    }
+
+    .step-number {
+      font-size: 1.25rem;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .steps-container {
+      grid-template-columns: 1fr;
+      max-width: 400px;
+      margin: 0 auto;
+    }
+  }
+</style>

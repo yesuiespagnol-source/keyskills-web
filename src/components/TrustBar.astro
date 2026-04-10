@@ -1,0 +1,135 @@
+---
+const sectors = [
+  { name: 'Sanidad', icon: 'hospital' },
+  { name: 'Banca', icon: 'bank' },
+  { name: 'Seguros', icon: 'shield' },
+  { name: 'Comunicaciones', icon: 'signal' },
+  { name: 'Asesoría', icon: 'briefcase' },
+];
+---
+
+<section class="trust-bar">
+  <div class="container">
+    <p class="trust-label reveal">Sectores donde hemos generado impacto</p>
+    <div class="sectors-grid" data-stagger>
+      {sectors.map((sector) => (
+        <div class="sector-item reveal">
+          <div class="sector-icon">
+            {sector.icon === 'hospital' && (
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M12 2v20M2 12h20M4.93 4.93l14.14 14.14M19.07 4.93L4.93 19.07" stroke-linecap="round"/>
+              </svg>
+            )}
+            {sector.icon === 'bank' && (
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M3 21h18M3 7v14M21 7v14M6 21V10M9 21V10M12 21V10M15 21V10M18 21V10M6 7h12l1-4H5l1 4z" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            )}
+            {sector.icon === 'shield' && (
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            )}
+            {sector.icon === 'signal' && (
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M5 12.55a11 11 0 0 1 14 0M8.53 16.11a6 6 0 0 1 6.94 0M12 20h.01" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            )}
+            {sector.icon === 'briefcase' && (
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <rect x="2" y="7" width="20" height="14" rx="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2" stroke-linecap="round"/>
+              </svg>
+            )}
+          </div>
+          <span class="sector-name">{sector.name}</span>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .trust-bar {
+    background: var(--color-light);
+    padding: var(--space-lg) 0;
+    border-bottom: 1px solid rgba(10, 22, 40, 0.05);
+  }
+
+  .trust-label {
+    text-align: center;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--color-text-light);
+    margin-bottom: 2rem;
+  }
+
+  .sectors-grid {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 3rem;
+    flex-wrap: wrap;
+  }
+
+  .sector-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .sector-item.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .sector-icon {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-secondary);
+    transition: all 0.3s ease;
+  }
+
+  .sector-icon svg {
+    width: 32px;
+    height: 32px;
+  }
+
+  .sector-item:hover .sector-icon {
+    color: var(--color-accent);
+    transform: scale(1.1);
+  }
+
+  .sector-name {
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--color-text-light);
+  }
+
+  @media (max-width: 768px) {
+    .sectors-grid {
+      gap: 2rem;
+    }
+
+    .sector-icon {
+      width: 40px;
+      height: 40px;
+    }
+
+    .sector-icon svg {
+      width: 28px;
+      height: 28px;
+    }
+  }
+</style>
