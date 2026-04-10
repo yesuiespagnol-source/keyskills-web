@@ -3,7 +3,7 @@
    ============================================ */
 
 /* ===== GOOGLE FONTS ===== */
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@200;300;400;500;600;700&display=swap');
 
 /* ===== CSS VARIABLES ===== */
 :root {
@@ -73,6 +73,7 @@ html {
 body {
   font-family: var(--font-body);
   font-size: 1rem;
+  font-weight: 200;
   line-height: 1.7;
   color: var(--color-text);
   background: var(--color-white);
@@ -417,7 +418,6 @@ p {
   font-size: 0.75rem;
   font-weight: 600;
   letter-spacing: 0.2em;
-  text-transform: uppercase;
   color: var(--color-accent);
   margin-bottom: 1rem;
 }
